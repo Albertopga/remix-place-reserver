@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id              Int         @id @default(autoincrement())
+  role            String      @unique
+  user            User[]
+}
+
+model User {
+  id              String      @id @default(uuid())
+  createdAt       DateTime    @default(now())
+  updatedtedAt    DateTime    @updatedAt
+  email           String      @unique
+  password        String
+  name            String
+  surname         String
+  role_id         Int
+  role            Role        @relation(fields:[role_id], references: [id])
+  Office_sites_booking Office_sites_booking[]
+  Office_admins   Office_admins[]
+}
+
+model Site {
+  id              Int         @id @default(autoincrement())
+  screen          Boolean     @default( false )
+  support_pc      Boolean     @default( false )
+  support_screen  Boolean     @default( false )
+  occupied        Boolean     @default( false )
+  office_id       String
+  office          Office?     @relation(fields: [office_id], references: [id])
+  Office_sites_booking Office_sites_booking[]
+}
+
+model Office {
+  id              String      @id @default(uuid())
+  city            String      @unique
+  site            Site[]
+  Office_admins   Office_admins[]
+}
+
+model Office_admins {
+  id            String      @default(uuid())
+  office_id     String
+  user_id       String
+  createdAt     DateTime    @default(now())
+  updatedtedAt  DateTime    @updatedAt
+  office        Office?     @relation(fields: [office_id], references: [id])
+  user          User?       @relation(fields: [user_id], references: [id])
+  @@id([office_id, user_id])
+}
+
+model Office_sites_booking {
+  id            String      @default(uuid())
+  site_id       Int
+  user_id       String
+  bookingAt     DateTime
+  updatedtedAt  DateTime    @updatedAt
+  site          Site?       @relation(fields: [site_id], references: [id])
+  user          User?       @relation(fields: [user_id], references: [id])
+
+  @@id([site_id, user_id, bookingAt])
+}
