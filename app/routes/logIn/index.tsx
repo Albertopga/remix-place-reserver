@@ -9,7 +9,7 @@ import { createToken } from '~/utils/jwt'
 export async function loader ({ request }:any) {
   const session = await getSession(
     request.headers.get('Cookie')
-  ) 
+  )
 
   if (session.has('token')) {
     session.unset('token')
