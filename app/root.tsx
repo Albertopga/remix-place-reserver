@@ -12,6 +12,9 @@ import {
 import globalStylesls from '~/styles/global.css'
 import datepickerStyles from '~/styles/datepicker.css'
 import { Nav } from './components/nav/Nav'
+import styles from './styles/app.css'
+import { Logo } from './components/icons/Logo'
+import { Button } from './components/Button'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -30,7 +33,7 @@ export const links = () => ([
   },
   {
     rel: 'stylesheet',
-    href: 'bootstrap/dist/css/bootstrap.min.css'
+    href: styles
   }
 ])
 const routes = [
@@ -40,15 +43,20 @@ const routes = [
 ]
 function Layout () {
   return (
-    <>
-      <header>
-        <Nav routes={routes}></Nav>
+    <div className='gri grid-rows-3 h-screen'>
+      <header className='m-5 h-min'>
+        <Logo color={'#009ade'}/>
+        <div >
+          <Nav routes={routes}></Nav>
+        </div>
       </header>
-      <Outlet />
-      <footer>
+      <section className='h-full bg-slate-300 px-5 py-10'>
+        <Outlet />
+      </section>
+      <footer className='fixed bottom-0 h-1/6 w-full bg-serbatic-900 text-serbatic-100 px-5 py-10 '>
         <small>© Reserva tu sitio Serbatic 2023 </small>
       </footer>
-    </>
+    </div>
 
   )
 }

@@ -4,16 +4,14 @@ import type { NavRoute } from '~/types'
 
 export const Nav: FunctionComponent<{ routes: NavRoute[] }> = ({ routes }) => {
   return (
-    <nav>
-      {routes.length && (
-        <ul>
-          {
-            routes.map((route: NavRoute, index: number) => {
-              return <li key={index}><Link to={ route.to }>{ route.label }</Link></li>
-            })
-          }
-        </ul>
-      )}
-    </nav>
+    <>
+      <nav className='flex flex-row-reverse bg-white'>
+        {routes.length && (
+          routes.map((route: NavRoute, index: number) => {
+            return <Link className='px-4 py-2 text-black uppercase font-medium' key={ index } to={ route.to }>{ route.label }</Link>
+          })
+        )}
+      </nav>
+    </>
   )
 }
