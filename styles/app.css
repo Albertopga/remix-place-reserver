@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.t-h1 {
+  @apply  font-brand text-primary text-4xl text-left capitalize my-3 font-medium;
+}
+.t-h2 {
+  @apply font-brand text-3xl text-left my-3 font-medium opacity-50;
+}
+.t-h3 {
+  @apply font-brand text-2xl text-left my-3 font-medium;
+}
+.t-h4 {
+  @apply font-brand text-primary text-left uppercase my-3 font-medium;
+}

@@ -7,7 +7,7 @@ export const Office: FunctionComponent<{occupiedSites: string[], handleClickCell
   const tableRows = parseOfficeMapping(valladolidOfficeMapping, occupiedSites)
 
   return (
-    <table id="office">
+    <table id="office" className='mx-auto table-auto'>
       <tbody>
         {tableRows.map((cells: Cell[], index:number) => (
           <tr key={index}>
@@ -15,7 +15,7 @@ export const Office: FunctionComponent<{occupiedSites: string[], handleClickCell
             <td
               key={cell.id}
               id={cell.id}
-              className={cellClassNameFor(cell)}
+              className={`${cellClassNameFor(cell)}`}
               rowSpan={cell.rowSpan}
               colSpan={cell.colSpan}
               onClick={(e) => handleClickCell(cell, e)}

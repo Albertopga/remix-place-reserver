@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker'
 import type { Booking, Cell, User } from '~/types'
 import { decodeToken, formatDate, getSession, isDeskCell } from '~/utils'
 import { BookingService, SiteService } from '~/services'
-import { Office } from '~/components/office/Office'
+import { Office } from '~/components/Office/Office'
 
 export const loader = async ({ params, request }: any) => {
   checkTokenValidity(request)
@@ -86,8 +86,8 @@ export default function SelectSite () {
   return (
     <>
       {sites && (
-        <>
-          <h4>Selecciona el día para el que vas a reservar</h4>
+        <section className='flex flex-col items-center'>
+          <h3 className='t-h3'>Selecciona el día para el que vas a reservar</h3>
           <DatePicker
             dateFormat="dd/MM/yyyy"
             selected={selectedDate}
@@ -96,11 +96,10 @@ export default function SelectSite () {
             minDate={new Date()}
             maxDate={restOfWeekPlusOneMore()}
           />
-        </>
+        </section>
       )}
       {sites && selectedDate && (
         <>
-          <h4>Reserva sitio para el día {formatDate(selectedDate)}</h4>
           <Office handleClickCell={handleClickCell} occupiedSites={occupiedSites} date={selectedDate}/>
         </>
       )}

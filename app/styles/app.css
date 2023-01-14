@@ -513,36 +513,13 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.static {
-  position: static;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.sticky {
-  position: sticky;
-}
-
-.bottom-0 {
-  bottom: 0px;
-}
-
-.top-0 {
-  top: 0px;
-}
-
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
-
 .m-5 {
   margin: 1.25rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .inline {
@@ -557,45 +534,12 @@ video {
   display: table;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-screen {
   height: 100vh;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
-.h-max {
-  height: -moz-max-content;
-  height: max-content;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-2\/4 {
-  height: 50%;
-}
-
-.h-1\/6 {
-  height: 16.666667%;
-}
-
-.h-4\/6 {
-  height: 66.666667%;
 }
 
 .h-min {
@@ -603,16 +547,20 @@ video {
   height: min-content;
 }
 
+.h-1\/6 {
+  height: 16.666667%;
+}
+
 .w-full {
   width: 100%;
 }
 
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.table-auto {
+  table-layout: auto;
 }
 
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .grid-rows-3 {
@@ -623,12 +571,26 @@ video {
   flex-direction: row-reverse;
 }
 
-.gap-1 {
-  gap: 0.25rem;
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+.bg-serbatic-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 52 99 / var(--tw-bg-opacity));
 }
 
 .bg-primary {
@@ -641,22 +603,18 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-serbatic-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(1 52 99 / var(--tw-bg-opacity));
-}
-
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
 .p-1 {
   padding: 0.25rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .px-4 {
@@ -669,29 +627,8 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-.py-7 {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
+.font-brand {
+  font-family: 'montserrat', 'serif';
 }
 
 .font-medium {
@@ -712,16 +649,6 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.placeholder-fuchsia-400::-moz-placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(232 121 249 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-fuchsia-400::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(232 121 249 / var(--tw-placeholder-opacity));
-}
-
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -736,6 +663,51 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.t-h1 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  font-family: 'montserrat', 'serif';
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  --tw-text-opacity: 1;
+  color: rgb(0 154 222 / var(--tw-text-opacity));
+}
+
+.t-h2 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  font-family: 'montserrat', 'serif';
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 500;
+  opacity: 0.5;
+}
+
+.t-h3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  font-family: 'montserrat', 'serif';
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+.t-h4 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  font-family: 'montserrat', 'serif';
+  font-weight: 500;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(0 154 222 / var(--tw-text-opacity));
 }
 
 .hover\:bg-secondary:hover {
