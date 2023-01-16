@@ -1,6 +1,9 @@
 import { Form, useActionData, useTransition } from '@remix-run/react'
 import { UserService } from '~/services/user'
 import { json, redirect } from '@remix-run/node'
+import { Label } from '~/components/FormCoponents/Label/Label'
+import { Input } from '~/components/FormCoponents/Input/Input'
+import { Button } from '~/components/Button'
 
 const badRequest = (data: any) => {
   return json(data, { status: 400 })
@@ -71,57 +74,20 @@ export default function CreateUser () {
   const isSubmitting = state === 'submitting'
 
   return (
-    <>
-      <h2>Registrar</h2>
-      <Form method="POST" disabled={isSubmitting}>
-        <div>
-          <label htmlFor="name">
-            Nombre{' '}
-            {nameError && <small style={{ color: 'red' }}>{nameError}</small>}
-          </label>
-          <input type="name" id="name" name="name" required />
-        </div>
-        <div>
-          <label htmlFor="surname">
-            Apellido{' '}
-            {surnameError && (
-              <small style={{ color: 'red' }}>{surnameError}</small>
-            )}
-          </label>
-          <input type="surname" id="surname" name="surname" required />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
+    <section className='border-2 bg-serbatic-900 shadow-2xl rounded-md py-8 p-5 sm:w-1/2 lg:w-1/3 mx-auto text-center'>
+      <h2 className='t-h2 text-center w text-white font-semibold'>Registrarse</h2>
 
-        <div>
-          <label htmlFor="password">
-            {' '}
-            Password{' '}
-            {passwordError && (
-              <small style={{ color: 'red' }}>{passwordError}</small>
-            )}
-          </label>
-          <input id="password" name="password" required />
-        </div>
-        <div>
-          <label htmlFor="password2">
-            {' '}
-            Repita el password{' '}
-            {password2Error && (
-              <small style={{ color: 'red' }}>{password2Error}</small>
-            )}
-            {notEqualsError && (
-              <small style={{ color: 'red' }}>{notEqualsError}</small>
-            )}
-          </label>
-          <input id="password2" name="password2" required />
-        </div>
-        <button type="submit">
-          {isSubmitting ? 'Wait for it ...' : 'Register'}
-        </button>
+      <Form method="POST" disabled={isSubmitting}>
+
+        <Input type="text" id="name" name="name" isRequired={true} error={nameError} placeHolder='Nombre' />
+        <Input type="text" id="surname" name="surname" isRequired={true} error={surnameError} placeHolder='Apellido' />
+        <Input type="text" id="email" name="email" isRequired={true} placeHolder='Email'/>
+        <Input type='password' id="password" name="password" isRequired={true} error={passwordError} placeHolder='Password'/>
+        <Input type='password' id="password" name="password2" isRequired={true} error={password2Error || notEqualsError}
+          placeHolder='Repita la password'/>
+
+        <Button type='submit' size='full' >{isSubmitting ? 'Wait for it ...' : 'Dar de alta'}</Button>
       </Form>
-    </>
+    </section>
   )
 }

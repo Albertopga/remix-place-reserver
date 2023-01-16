@@ -54,6 +54,7 @@ const routes = [
   { to: '/login', label: 'Login' },
   { to: '/signup', label: 'Registrarse' }
 ]
+
 function Layout () {
   return (
     <div className='flex flex-col h-screen'>
@@ -61,7 +62,7 @@ function Layout () {
         <Nav routes={routes}></Nav>
         <Logo color={'#009ade'}/>
       </header>
-      <section className='flex-1 bg-slate-300 px-5 py-10'>
+      <section className='flex-1 px-5 py-10'>
         <Outlet />
       </section>
       <footer className='h-20 w-full bg-serbatic-900 text-serbatic-100 px-5 py-10 '>

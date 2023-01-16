@@ -5,6 +5,8 @@ import { json, redirect } from '@remix-run/node'
 import type { User } from '@prisma/client'
 import { getSession, commitSession } from '../../utils/session'
 import { createToken } from '~/utils/jwt'
+import { Input } from '~/components/FormCoponents/Input/Input'
+import { Button } from '~/components/Button'
 
 export async function loader ({ request }:any) {
   const session = await getSession(
@@ -75,27 +77,22 @@ export default function LoginUser () {
   const acctionData = useActionData()
   const { loginError } = acctionData ?? {}
   const { error } = loginError ?? {}
+
   const isSubmitting = state === 'submitting'
 
   return (
     <>
-      <h2>Registrar</h2>
-      <Form method="POST" disabled={isSubmitting}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input id="password" name="password" required />
-        </div>
-        <button type="submit">
-          {isSubmitting ? 'Wait for it ...' : 'Register'}
-        </button>
-        <p>{error && (
-          <small style={{ color: 'red' }}>{error}</small>
-        )}</p>
-      </Form>
+      <section className='border-2 bg-serbatic-900 shadow-2xl rounded-md py-8 p-5 sm:w-1/2 lg:w-1/3 mx-auto text-center'>
+        <h2 className='t-h2 text-center w text-white font-semibold'>Login</h2>
+
+        <Form method="POST" disabled={isSubmitting}>
+
+          <Input type="text" id="email" name="email" isRequired={true} placeHolder='Email'/>
+          <Input type='password' id="password" name="password" isRequired={true} placeHolder='Password'/>
+
+          <Button type='submit' size='full' >{isSubmitting ? 'Wait for it ...' : 'Acceder'}</Button>
+        </Form>
+      </section>
     </>
   )
 }

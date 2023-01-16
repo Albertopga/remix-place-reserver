@@ -70,3 +70,5 @@ export type DeskCell = CellPosition & {
 export type Cell = AisleCell | DeskCell | DoorCell
 
 export type NavRoute = { to: string, label: string, icon?: string }
+
+export type btnSize = 'full' | 'screen' | 'min' | 'max' | 'fit'

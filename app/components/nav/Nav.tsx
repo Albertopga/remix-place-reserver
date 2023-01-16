@@ -25,7 +25,14 @@ export const Nav: FunctionComponent<{ routes: NavRoute[] }> = ({ routes }) => {
       <nav onClick={handleClick} className={`flex flex-col z-50 absolute top-16 bg-primary text-white text-center rounded max-w-sm ${parseHiddenClass()} `}>
         {routes.length && (
           routes.map((route: NavRoute, index: number) => {
-            return <Link className='px-4 py-2 uppercase font-medium hover:bg-serbatic-300' key={ index } to={ route.to }>{ route.label }</Link>
+            return (
+              <Link
+                className='px-4 py-2 uppercase font-medium hover:bg-serbatic-300'
+                key={ index }
+                to={ route.to }
+              >
+                { route.label }
+              </Link>)
           })
         )}
       </nav>
