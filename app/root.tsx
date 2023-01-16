@@ -57,9 +57,9 @@ const routes = [
 function Layout () {
   return (
     <div className='flex flex-col h-screen'>
-      <header className='m-5 h-20'>
-        <Logo color={'#009ade'}/>
+      <header className='m-5 h-18 flex justify-between'>
         <Nav routes={routes}></Nav>
+        <Logo color={'#009ade'}/>
       </header>
       <section className='flex-1 bg-slate-300 px-5 py-10'>
         <Outlet />
