@@ -56,15 +56,15 @@ const routes = [
 ]
 function Layout () {
   return (
-    <div className='gri grid-rows-3 h-screen'>
-      <header className='m-5 h-min'>
+    <div className='flex flex-col h-screen'>
+      <header className='m-5 h-20'>
         <Logo color={'#009ade'}/>
         <Nav routes={routes}></Nav>
       </header>
-      <section className='bg-slate-300 px-5 py-10'>
+      <section className='flex-1 bg-slate-300 px-5 py-10'>
         <Outlet />
       </section>
-      <footer className='h-1/6 w-full bg-serbatic-900 text-serbatic-100 px-5 py-10 '>
+      <footer className='h-20 w-full bg-serbatic-900 text-serbatic-100 px-5 py-10 '>
         <small>© Reserva tu sitio Serbatic 2023 </small>
       </footer>
     </div>
