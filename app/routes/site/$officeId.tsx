@@ -27,7 +27,7 @@ export async function action ({ request }:any) {
   const formData = await request.formData()
   const site_id = formData.get('_siteId')
   const date = formData.get('_bookingDate')
-  const isBooking = formData.get('_siteStatus')
+  const isBooking = formData.get('_bookingStatus')
 
   // TODO cuando vea el motivo por el cual me entra en el action sin haber submiteado revisar las validaciones
   // if (!site_id) throw new Error('Site_id is required')

@@ -1,10 +1,11 @@
 import { Form } from '@remix-run/react'
 import type { FunctionComponent } from 'react'
-import type { HandleClickCellFn, Cell, ValladolidOfficeMapping } from '~/types'
+import type { HandleClickCellFn, Cell, ValladolidOfficeMapping, DeskCell } from '~/types'
 import { isAisleCell, isDeskCell, isDoorCell, setOccupied, valladolidOfficeMapping } from '~/utils'
 
 export const Office: FunctionComponent<{occupiedSites: string[], handleClickCell: HandleClickCellFn, date: Date}> = ({ occupiedSites, handleClickCell, date }) => {
   const tableRows = parseOfficeMapping(valladolidOfficeMapping, occupiedSites)
+  const setCellBookingStatus = (cell: DeskCell) => '' + !cell.occupied
 
   return (
     <table id="office" className='mx-auto table-auto'>
@@ -25,7 +26,7 @@ export const Office: FunctionComponent<{occupiedSites: string[], handleClickCell
                   ? <>
                     <input type="hidden" name="_siteId" value={cell.id} />
                     <input type="hidden" name="_bookingDate" value={date.toISOString()} />
-                    <input type="hidden" name="_siteStatus" value={'' + cell.occupied} />
+                    <input type="hidden" name="_bookingStatus" value={setCellBookingStatus(cell)} />
                     <button type="submit">{cell.id}</button>
                   </>
                   : ''}

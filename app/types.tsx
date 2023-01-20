@@ -1,13 +1,14 @@
 
 export type User = {
-  'id'?: string,
-  'createdAt'?: string,
-  'updatedAt'?: string,
-  'role_id'?: number
-  'role'?: string,
-  'email': string,
-  'name': string,
-  'surname': string
+  id?: string,
+  createdAt?: string,
+  updatedAt?: string,
+  role_id?: number
+  role?: string,
+  email: string,
+  name: string,
+  surname: string,
+  password?: string
 }
 
 export type Role = {
